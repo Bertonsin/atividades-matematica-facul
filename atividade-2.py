@@ -1,9 +1,37 @@
+class Triangulo:
+    def __init__(self, lado_ab, lado_ac, lado_bc):
+        self.lado_ab = lado_ab
+        self.lado_ac = lado_ac
+        self.lado_bc = lado_bc
 
-# Realiza o cálculo a razão entre os segmentos divididos pela bissetriz interna usando ângulos adjacentes
-def razao_bissetriz_interna(ab, ac):
-    return ab / ac
+    def calcula_razao_bissetriz_interna(self):
+        # Calcula a razão das partes formadas pela bissetriz interna no lado oposto
+        razao = self.lado_ab / self.lado_ac
+        return razao
 
-# Testes
-ab, ac = 8, 6  # Lados do triângulo em relação ao vértice A
-razao_interna = razao_bissetriz_interna(ab, ac)
-print(f"A razão entre BD e DC pela bissetriz interna é: {razao_interna:.2f}")
+# Exemplo de uso
+lado_ab = float(input("Digite o comprimento do lado AB: "))
+lado_ac = float(input("Digite o comprimento do lado AC: "))
+lado_bc = float(input("Digite o comprimento do lado BC: "))
+
+triangulo = Triangulo(lado_ab, lado_ac, lado_bc)
+print("A razão das partes formadas pela bissetriz interna é:", triangulo.calcula_razao_bissetriz_interna())
+
+class TrianguloExterno:
+    def __init__(self, lado_ab, lado_ac, lado_bc):
+        self.lado_ab = lado_ab
+        self.lado_ac = lado_ac
+        self.lado_bc = lado_bc
+
+    def calcula_razao_bissetriz_externa(self):
+        # Calcula a razão das partes formadas pela bissetriz externa no lado oposto
+        razao = self.lado_ab / self.lado_ac
+        return razao
+
+# Exemplo de uso
+lado_ab = float(input("Digite o comprimento do lado AB: "))
+lado_ac = float(input("Digite o comprimento do lado AC: "))
+lado_bc = float(input("Digite o comprimento do lado BC: "))
+
+triangulo_externo = TrianguloExterno(lado_ab, lado_ac, lado_bc)
+print("A razão das partes formadas pela bissetriz externa é:", triangulo_externo.calcula_razao_bissetriz_externa())
